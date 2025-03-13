@@ -1,3 +1,4 @@
+import { DeleteButton } from "@/components/DeleteButton";
 import Logout from "@/components/Logout";
 import { AuthGetCurrentUserServer, cookiesClient } from "@/utils/amplify-utils";
 import { revalidatePath } from "next/cache";
@@ -28,7 +29,7 @@ async function App() {
       </form>
       <ul>
         {todos && todos.map((todo) => (
-          <li key={todo.id}>{todo.content}</li>
+          <li key={todo.id}>{todo.content} <DeleteButton id={todo.id} /></li>
         ))}
       </ul>
     </>
